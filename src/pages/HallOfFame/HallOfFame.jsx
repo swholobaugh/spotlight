@@ -1,9 +1,6 @@
 import React, { useContext, useReducer } from "react";
-import Navbar from "../../components/Navbar/Navbar.jsx";
-
 import ContactForm from "./ContactForm/ContactForm.jsx";
 import ContactList from "./ContactList/ContactList.jsx";
-
 import { ContactContext } from "../../Context.jsx";
 import contactFormReducer from "./ContactForm/contactFormReducer";
 
@@ -14,7 +11,7 @@ const initialFormState = {
   isSelected: false
 };
 
-const Contact = () => {
+const HallOfFame = () => {
   const [formState, dispatch] = useReducer(
     contactFormReducer,
     initialFormState
@@ -59,7 +56,7 @@ const Contact = () => {
 
   return (
     <div>
-      <h1>Contact Page</h1>
+      <h1>Hall of Fame</h1>
       <ContactForm
         formState={formState}
         handleTextChange={handleTextChange}
@@ -71,4 +68,4 @@ const Contact = () => {
   );
 };
 
-export default Contact;
+export default HallOfFame;

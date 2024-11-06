@@ -1,10 +1,10 @@
 import React from "react";
 import Navbar from "../../components/Navbar/Navbar.jsx";
 
-const Home = () => {
+const Nominate = () => {
   return (
     <div>
-      <h1 className='font-header'>Home Page</h1>
+      <h1 className='font-header'>Nominate</h1>
       <div
         className='px-8 font-body'
       >My page copy, gonna write stuff heere...</div>
@@ -25,4 +25,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Nominate;
