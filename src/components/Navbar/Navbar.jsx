@@ -10,19 +10,19 @@ const Navbar = () => {
   const [selectedPath, setSelectedPath] = useState(location.pathname)
 
   useEffect(() => {
-    if (['/', '/hof', '/about'].includes(location.pathname)) {
+    if (['/nominate', '/hof', '/about'].includes(location.pathname)) {
       setSelectedPath(location.pathname)
     }
   }, [location.pathname])
 
   const getButtonClass = (path) => {
     return path === selectedPath
-      ? 'px-2 py-1 text-app-accent border-b-2 border-app-accent font-bold'
-      : 'px-2 py-1 text-app-accent-secondary hover:text-app-accent font-bold';
+      ? 'px-6 py-1 text-app-accent border-b-2 border-app-accent font-bold'
+      : 'px-6 py-1 text-app-accent-secondary hover:text-app-accent font-bold';
   }
 
   const handleClick = (path) => {
-    if (['/', '/hof', '/about'].includes(path)) {
+    if (['/nominate', '/hof', '/about'].includes(path)) {
       setSelectedPath(path)
     }
     navigate(path)
@@ -30,21 +30,25 @@ const Navbar = () => {
 
   return (
     <div className='flex justify-between items-center p-4 bg-white shadow-md'>
-      <div className='flex-grow flex items-center px-16 font-bold text-app-accent-secondary'>
-          <div className='px-2'>
-            <PiSun size={30} />
+      <div className='flex items-center width mx-16 w-16 font-bold text-app-accent-secondary'>
+        <div
+          className='flex items-center cursor-pointer'
+          onClick={() => navigate('/')}
+        >
+          <div className='px-3'>
+            <PiSun size={32} />
           </div>
           <div>
             <p>Aggie</p>
             <p>Spotlight</p>
           </div>
+        </div>
       </div>
-
-      <div className='flex justify-center flex-grow'>
+      <div className='flex grow justify-center flex-grow'>
         <button
-          className={getButtonClass('/')}
+          className={getButtonClass('/nominate')}
           onClick={() => {
-            navigate('/');
+            navigate('/nominate');
           }}
         >
           Nominate
@@ -66,10 +70,10 @@ const Navbar = () => {
           About
         </button>
       </div>
-      <div className='flex-grow flex justify-end'>
+      <div className='flex mx-16 w-16 justify-end'>
         <FontAwesomeIcon
           icon={faCircleUser}
-          className='text-app-accent-secondary px-16 hover:text-app-accent cursor-pointer'
+          className='text-app-accent-secondary hover:text-app-accent cursor-pointer'
           size='2x'
           onClick={() => {
             navigate('/profile')

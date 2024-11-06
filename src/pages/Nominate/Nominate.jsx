@@ -1,26 +1,14 @@
 import React from "react";
-import Navbar from "../../components/Navbar/Navbar.jsx";
+import Panel from '../../components/Panel/Panel.jsx'
 
 const Nominate = () => {
   return (
     <div>
-      <h1 className='font-header'>Nominate</h1>
-      <div
-        className='px-8 font-body'
-      >My page copy, gonna write stuff heere...</div>
-      {/* Below div is styled with more traditional CSS */}
-      <div
-        style={{
-          backgroundColor: 'red',
-          color: 'white',
-          padding: '1rem',
-          borderRadius: '0.5rem',
-          marginTop: '4px',
-          fontFamily: 'Comfortaa Normal',
-        }}
-      >
-        Here is another new paragraph, but styled differently
-      </div>
+      <Panel
+
+        title="Nominate"
+        content="Nominate an Aggie for the Aggie Spotlight!"
+      />
     </div>
   );
 };
