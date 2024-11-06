@@ -13,7 +13,7 @@ const Pages = (props) => {
         <Routes>
           <Route exact path="/" element={<Nominate/>}/>
           <Route path="/about" element={<About/>}/>
-          <Route path="/contact" element={<HallOfFame/>}/>
+          <Route path="/hof" element={<HallOfFame/>}/>
           <Route path="/profile" element={<Profile />} />
         </Routes>
       </Layout>

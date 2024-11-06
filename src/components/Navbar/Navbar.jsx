@@ -31,7 +31,15 @@ const Navbar = () => {
             navigate('/');
           }}
         >
-          Home
+          Nominate
+        </button>
+        <button
+          className={getButtonClass('/hof')}
+          onClick={() => {
+            navigate('/hof');
+          }}
+        >
+          Hall of Fame
         </button>
         <button
           className={getButtonClass('/about')}
@@ -40,14 +48,6 @@ const Navbar = () => {
           }}
         >
           About
-        </button>
-        <button
-          className={getButtonClass('/contact')}
-          onClick={() => {
-            navigate('/contact');
-          }}
-        >
-          Contact
         </button>
       </div>
       <div className='flex-grow flex justify-end'>
