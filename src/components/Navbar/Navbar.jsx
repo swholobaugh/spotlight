@@ -76,7 +76,7 @@ const Navbar = () => {
           />
         </div>
       </div>
-      <div className='ml-20 text-app-accent font-slogan italic text-left pt-2 text-sm'>
+      <div className='ml-20 text-app-accent font-slogan italic text-left text-sm'>
         Celebrating the Spirit of Excellence and Integrity
       </div>
     </div>
