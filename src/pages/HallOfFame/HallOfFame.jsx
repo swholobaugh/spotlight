@@ -1,8 +1,4 @@
-import React, { useContext, useReducer } from "react";
-import ContactForm from "./ContactForm/ContactForm.jsx";
-import ContactList from "./ContactList/ContactList.jsx";
-import { ContactContext } from "../../Context.jsx";
-import contactFormReducer from "./ContactForm/contactFormReducer";
+import React from "react";
 
 const initialFormState = {
   firstName: "",
@@ -12,58 +8,10 @@ const initialFormState = {
 };
 
 const HallOfFame = () => {
-  const [formState, dispatch] = useReducer(
-    contactFormReducer,
-    initialFormState
-  );
-
-  const [listState, dispatchList] = useContext(ContactContext);
-
-  const handleTextChange = (e) => {
-    dispatch({
-      type: "HANDLE_INPUT_TEXT",
-      field: e.target.name,
-      payload: e.target.value
-    });
-  };
-
-  const handleClick = (e) => {
-    e.preventDefault();
-    if (
-      !listState.includes(formState) &&
-      formState.firstName &&
-      formState.lastName &&
-      formState.phoneNumber
-    ) {
-      dispatchList({
-        type: "HANDLE_ADD_TO_LIST",
-        payload: formState
-      });
-      dispatch({
-        type: "HANDLE_RESET_TEXT",
-        payload: initialFormState
-      });
-    }
-  };
-
-  const handleRemoveSelected = (e) => {
-    e.preventDefault();
-    dispatchList({
-      type: "HANDLE_REMOVE_FROM_LIST",
-      payload: listState
-    });
-  };
 
   return (
     <div>
       <h1>Hall of Fame</h1>
-      <ContactForm
-        formState={formState}
-        handleTextChange={handleTextChange}
-        handleClick={handleClick}
-        handleRemoveSelected={handleRemoveSelected}
-      />
-      <ContactList contactList={listState} dispatch={dispatchList} />
     </div>
   );
 };

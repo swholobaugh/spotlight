@@ -1,4 +1,4 @@
-const contactListReducer = (state, action) => {
+const nominateListReducer = (state, action) => {
   switch (action.type) {
     case "HANDLE_ADD_TO_LIST":
       return [...state, action.payload];
@@ -19,4 +19,4 @@ const contactListReducer = (state, action) => {
   }
 };
 
-export default contactListReducer;
+export default nominateListReducer;

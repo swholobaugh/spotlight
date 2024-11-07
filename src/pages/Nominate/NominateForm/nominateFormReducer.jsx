@@ -1,4 +1,4 @@
-const contactFormReducer = (state, action) => {
+const nominateFormReducer = (state, action) => {
   switch (action.type) {
     case "HANDLE_INPUT_TEXT":
       return {
@@ -12,4 +12,4 @@ const contactFormReducer = (state, action) => {
   }
 };
 
-export default contactFormReducer;
+export default nominateFormReducer;

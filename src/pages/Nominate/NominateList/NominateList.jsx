@@ -1,6 +1,6 @@
 import React from "react";
 
-const ContactList = (props) => {
+const NominateList = (props) => {
   const { contactList, dispatch } = props;
 
   return (
@@ -29,4 +29,4 @@ const ContactList = (props) => {
   );
 };
 
-export default ContactList;
+export default NominateList;

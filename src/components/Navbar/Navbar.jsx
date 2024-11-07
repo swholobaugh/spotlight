@@ -1,24 +1,18 @@
-import React, { useContext, useState, useEffect } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faCircleUser} from '@fortawesome/free-solid-svg-icons';
-import { PiSun } from 'react-icons/pi';
+import React, { useState } from 'react'
+import { useNavigate, useLocation } from 'react-router-dom'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCircleUser } from '@fortawesome/free-solid-svg-icons'
+import { PiSun } from 'react-icons/pi'
 
 const Navbar = () => {
-  const navigate = useNavigate();
+  const navigate = useNavigate()
   const location = useLocation()
   const [selectedPath, setSelectedPath] = useState(location.pathname)
-
-  useEffect(() => {
-    if (['/nominate', '/hof', '/about'].includes(location.pathname)) {
-      setSelectedPath(location.pathname)
-    }
-  }, [location.pathname])
 
   const getButtonClass = (path) => {
     return path === selectedPath
       ? 'px-6 py-1 text-app-accent border-b-2 border-app-accent font-bold'
-      : 'px-6 py-1 text-app-accent-secondary hover:text-app-accent font-bold';
+      : 'px-6 py-1 text-app-accent-secondary hover:text-app-accent font-bold'
   }
 
   const handleClick = (path) => {
@@ -33,7 +27,7 @@ const Navbar = () => {
       <div className='flex items-center width mx-16 w-16 font-bold text-app-accent-secondary'>
         <div
           className='flex items-center cursor-pointer'
-          onClick={() => navigate('/')}
+          onClick={() => handleClick('/')}
         >
           <div className='px-3'>
             <PiSun size={32} />
@@ -48,7 +42,7 @@ const Navbar = () => {
         <button
           className={getButtonClass('/nominate')}
           onClick={() => {
-            navigate('/nominate');
+            handleClick('/nominate')
           }}
         >
           Nominate
@@ -56,7 +50,7 @@ const Navbar = () => {
         <button
           className={getButtonClass('/hof')}
           onClick={() => {
-            navigate('/hof');
+            handleClick('/hof')
           }}
         >
           Hall of Fame
@@ -64,7 +58,7 @@ const Navbar = () => {
         <button
           className={getButtonClass('/about')}
           onClick={() => {
-            navigate('/about');
+            handleClick('/about')
           }}
         >
           About
@@ -76,12 +70,12 @@ const Navbar = () => {
           className='text-app-accent-secondary hover:text-app-accent cursor-pointer'
           size='2x'
           onClick={() => {
-            navigate('/profile')
+            handleClick('/profile')
           }}
         />
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Navbar;
+export default Navbar
