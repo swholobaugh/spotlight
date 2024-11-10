@@ -18,6 +18,8 @@ const Navbar = () => {
   const handleClick = (path) => {
     if (['/nominate', '/hof', '/about'].includes(path)) {
       setSelectedPath(path)
+    } else {
+      setSelectedPath('')
     }
     navigate(path)
   }
