@@ -11,8 +11,8 @@ const Navbar = () => {
 
   const getButtonClass = (path) => {
     return path === selectedPath
-      ? 'px-6 py-1 text-app-accent border-b-2 border-app-accent font-bold'
-      : 'px-6 py-1 text-app-accent-secondary hover:text-app-accent font-bold'
+      ? 'px-6 py-1 text-app-accent-secondary border-b-2 border-app-accent-secondary font-bold'
+      : 'px-6 py-1 text-app-accent hover:text-app-accent-secondary font-bold'
   }
 
   const handleClick = (path) => {
@@ -27,7 +27,7 @@ const Navbar = () => {
   return (
     <div className='p-4 bg-white shadow-md'>
       <div className='flex justify-between items-center'>
-        <div className='flex width mx-16 w-16 font-bold text-app-accent-secondary'>
+        <div className='flex width mx-16 w-16 font-bold text-app-accent'>
           <div
             className='flex items-center cursor-pointer'
             onClick={() => handleClick('/')}
@@ -70,7 +70,7 @@ const Navbar = () => {
         <div className='flex mx-16 w-16 justify-end'>
           <FontAwesomeIcon
             icon={faCircleUser}
-            className='text-app-accent-secondary hover:text-app-accent cursor-pointer'
+            className='text-app-accent hover:text-app-accent-secondary cursor-pointer'
             size='2x'
             onClick={() => {
               handleClick('/profile')
@@ -78,7 +78,7 @@ const Navbar = () => {
           />
         </div>
       </div>
-      <div className='ml-20 text-app-accent font-slogan italic text-left text-sm'>
+      <div className='ml-20 text-app-cta font-slogan italic text-left text-sm'>
         Celebrating the Spirit of Excellence and Integrity
       </div>
     </div>

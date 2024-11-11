@@ -23,9 +23,9 @@ export default {
       },
       colors: {
         'app-background': '#f0f0f0',
-        'app-accent': '#385cf3',
-        'app-accent-secondary': '#500000',
-        'app-cta': '#fbec0c',
+        'app-accent': '#500000',
+        'app-accent-secondary': '#b23a3a',
+        'app-cta': '#d4af37',
         'app-text': '#ffffff',
         'app-text-secondary': '#202020'
       },
