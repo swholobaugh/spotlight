@@ -27,7 +27,7 @@ export default {
         'app-accent-secondary': '#500000',
         'app-cta': '#fbec0c',
         'app-text': '#ffffff',
-        'app-text-secondary': '#202020',
+        'app-text-secondary': '#202020'
       },
     },
   },

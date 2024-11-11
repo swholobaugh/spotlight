@@ -10,8 +10,9 @@ const initialFormState = {
 const HallOfFame = () => {
 
   return (
-    <div>
-      <h1>Hall of Fame</h1>
+    <div className='flex flex-col justify-center items-center'>
+      <h1 className="text-2xl text-black font-bold mb-4">(Currently Under Construction...)</h1>
+      <h1 className='text-xl text-black font-bold mb-4'>Hall of Fame</h1>
     </div>
   );
 };

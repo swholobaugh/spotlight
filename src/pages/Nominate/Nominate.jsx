@@ -49,6 +49,7 @@ const Nominate = () => {
 
   return (
       <div className="flex flex-col items-center bg-white p-4">
+        <h1 className="text-2xl text-black font-bold mb-4">(Currently Under Construction...)</h1>
         <h2 className="text-xl text-black font-bold mb-4">Nominate</h2>
         <div>Nominate an Aggie to the Aggie Spotlight!</div>
         <NominateForm
