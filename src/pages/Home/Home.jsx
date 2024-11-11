@@ -16,14 +16,14 @@ const Home = () => {
           This is a platform where Aggies can be nominated for their outstanding demonstration of the Aggie Core values of Excellence and Integrity.
         </div>
         <div
-          className='text-[#D4AF37] cursor-pointer mt-2 hover:underline'
+          className='text-[#D4AF37] cursor-pointer hover:underline'
           onClick={() => navigate('/about')}
         >
           Learn More...
         </div>
       </div>
-      <section className='border-2 border-[#500000] rounded-lg w-2/3 mt-8 p-6'>
-        <div className='flex flex-col justify-center items-center mt-4'>
+      <section className='border-2 border-[#500000] rounded-lg w-2/3 mt-4 p-6'>
+        <div className='flex flex-col justify-center items-center'>
           <header className='text-lg font-bold text-[#500000] mb-4'>
             Current Nominee
           </header>
