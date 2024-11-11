@@ -1,21 +1,21 @@
 import React from 'react'
+import {useNavigate} from 'react-router-dom'
 
 const Home = () => {
+  const navigate = useNavigate()
+
   return (
     <div className='flex flex-col items-center'>
       <div className='flex flex-col justify-center items-center text-center'>
         <div className='text-xl font-bold'>
           Welcome to the Aggie Spotlight!
         </div>
-        <div className='mt-2'>This is a place where Aggies can come together for inspiration and share in a connected community based on
-          the Aggie Core Values.
+        <div className='mt-2'>This is a platform where Aggies can be nominated for their
+          outstanding demonstration of the Aggie Core values of Excellence and Integrity.
         </div>
         <div
           className='text-blue-500 cursor-pointer'
-          onClick={(e) => {
-            e.preventDefault()
-            window.location.href = '/about'
-          }}
+          onClick={(e) => navigate('/about')}
         >Learn More...
         </div>
       </div>
