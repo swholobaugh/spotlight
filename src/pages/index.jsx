@@ -27,8 +27,8 @@ const Pages = (props) => {
           <Route path="/signup" element={<Navigate to="/auth" />} />
           <Route exact path="/" element={<ProtectedRoute element={Home} />}/>
           <Route path="/nominate" element={<ProtectedRoute element={Nominate} />}/>
-          <Route path="/about" element={<ProtectedRoute element={About} />}/>
-          <Route path="/hof" element={<ProtectedRoute element={HallOfFame} />}/>
+          <Route path="/about" element={<About />} />
+          <Route path="/hof" element={<HallOfFame />} />
           <Route path="/profile" element={<ProtectedRoute element={Profile} />} />
         </Routes>
       </Layout>
