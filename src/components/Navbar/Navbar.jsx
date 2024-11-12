@@ -18,28 +18,19 @@ const Navbar = () => {
   };
 
   const handleClick = (path) => {
-<<<<<<< HEAD
-    setSelectedPath(path);
-=======
     if (['/nominate', '/vote', '/hof', '/about'].includes(path)) {
       setSelectedPath(path);
     } else {
       setSelectedPath('');
     }
->>>>>>> b1565a7 (feat(vote): add vote page)
     navigate(path);
   };
 
   return (
     <div className='p-4 bg-white shadow-md'>
       <div className='flex justify-between items-center'>
-<<<<<<< HEAD
-        {/* Logo Section */}
-        <div className='flex items-center mx-16 font-bold text-app-accent cursor-pointer' onClick={() => handleClick('/')}>
-=======
         <div className='flex items-center mx-16 font-bold text-app-accent cursor-pointer'
              onClick={() => handleClick('/')}>
->>>>>>> b1565a7 (feat(vote): add vote page)
           <div className='px-3'>
             <PiSun size={32}/>
           </div>
@@ -57,15 +48,12 @@ const Navbar = () => {
           >
             Nominate
           </button>
-<<<<<<< HEAD
-=======
           <button
             className={getButtonClass('/vote')}
             onClick={() => handleClick('/vote')}
           >
             Vote
           </button>
->>>>>>> b1565a7 (feat(vote): add vote page)
           <button
             className={getButtonClass('/hof')}
             onClick={() => handleClick('/hof')}
