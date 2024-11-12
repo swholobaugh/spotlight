@@ -1,17 +1,18 @@
 import React from 'react'
 import Navbar from '../Navbar/Navbar'
 import Card from '../Card/Card'
+import {AuthProvider} from '../../providers/AuthProvider'
 
-const Layout = ({ children }) => {
+const Layout = ({children}) => {
   return (
-    <div>
-      <Navbar />
-      <main className="flex justify-center">
-        <Card>
-          {children}
-        </Card>
-      </main>
-    </div>
+      <div>
+        <Navbar/>
+        <main className="flex justify-center">
+          <Card>
+            {children}
+          </Card>
+        </main>
+      </div>
   )
 }
 
