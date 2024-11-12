@@ -18,17 +18,14 @@ const Navbar = () => {
   };
 
   const handleClick = (path) => {
-    if (['/nominate', '/hof', '/about'].includes(path)) {
-      setSelectedPath(path);
-    } else {
-      setSelectedPath('');
-    }
+    setSelectedPath(path);
     navigate(path);
   };
 
   return (
     <div className='p-4 bg-white shadow-md'>
       <div className='flex justify-between items-center'>
+        {/* Logo Section */}
         <div className='flex items-center mx-16 font-bold text-app-accent cursor-pointer' onClick={() => handleClick('/')}>
           <div className='px-3'>
             <PiSun size={32} />
@@ -38,15 +35,15 @@ const Navbar = () => {
             <p>Spotlight</p>
           </div>
         </div>
+
+        {/* Centered Buttons Section */}
         <div className='flex justify-center items-center space-x-6 flex-grow'>
-          {currentUser && (
-            <button
-              className={getButtonClass('/nominate')}
-              onClick={() => handleClick('/nominate')}
-            >
-              Nominate
-            </button>
-          )}
+          <button
+            className={getButtonClass('/nominate')}
+            onClick={() => handleClick('/nominate')}
+          >
+            Nominate
+          </button>
           <button
             className={getButtonClass('/hof')}
             onClick={() => handleClick('/hof')}
@@ -60,6 +57,8 @@ const Navbar = () => {
             About
           </button>
         </div>
+
+        {/* Profile Icon Section */}
         <div className='flex items-center mx-16 w-16 justify-end'>
           {currentUser && (
             <FontAwesomeIcon
@@ -71,6 +70,8 @@ const Navbar = () => {
           )}
         </div>
       </div>
+
+      {/* Slogan Section */}
       <div className='ml-20 text-app-cta font-slogan italic text-left text-sm'>
         Celebrating the Spirit of Excellence and Integrity
       </div>
