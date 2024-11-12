@@ -6,6 +6,9 @@ import Nominate from "./Nominate/Nominate.jsx"
 import About from "./About/About.jsx"
 import HallOfFame from "./HallOfFame/HallOfFame.jsx"
 import Profile from "./Profile/Profile.jsx"
+import Vote from "./Vote/Vote.jsx"
+// import Login from "./Login/Login.jsx"
+// import ProtectedRoute from "../components/ProtectedRoute/ProtectedRoute.jsx"
 import { AuthProvider, useAuth } from '../providers/AuthProvider'
 import AuthPage from './AuthPage/AuthPage.jsx'
 
@@ -24,7 +27,9 @@ const Pages = (props) => {
           <Route path="/login" element={<Navigate to="/auth" />} />
           <Route path="/signup" element={<Navigate to="/auth" />} />
           <Route exact path="/" element={<Home />}/>
-          <Route path="/nominate" element={<ProtectedRoute element={Nominate} />}/>
+          <Route path="/nominate" element={<ProtectedRoute element={Nominate} />} />
+          <Route path="/vote" element={<ProtectedRoute element={Vote} />} />
+          <Route exact path="/" element={<Home />}/>
           <Route path="/about" element={<About />} />
           <Route path="/hof" element={<HallOfFame />} />
           <Route path="/profile" element={<ProtectedRoute element={Profile} />} />
