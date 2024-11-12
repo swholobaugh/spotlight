@@ -24,7 +24,8 @@ const About = () => {
       <section className='w-3/4 mb-8'>
         <h1 className='text-xl text-[#500000] font-bold mb-4'>About Us</h1>
         <p className='text-[#2C2C2C] leading-relaxed'>
-          We are Team AGS; Aaron, Garrett, and Seth! A group of 3 students in an online masters program for Management Information Systems who have a lofty goal of creating something worthy of getting the coveted "A" in their course. From different backgrounds, they realized they each brought something unique and important to develop the best way to shine a spotlight on fellow Aggies. With that, the Aggie Spotlight was born.
+          We are Team AGS; Aaron, Garrett, and Seth! A group of 3 students in an online masters program for Management Information Systems at Texas A&M University.
+          From different backgrounds, they realized they each brought something unique and important to develop the best way to shine a spotlight on fellow Aggies. With that, the Aggie Spotlight was born.
         </p>
       </section>
       <section className='w-2/3 flex justify-center'>
