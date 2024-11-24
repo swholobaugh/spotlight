@@ -10,6 +10,7 @@ const initialFormState = {
   last_name: '',
   email: '',
   nomination_reason: '',
+  nominee_photo: null,
   isSelected: false
 }
 
@@ -21,15 +22,6 @@ const Nominate = () => {
 
   const [listState, dispatchList] = useContext(NominateContext)
 
-  /*
-  const addNominee = useMutation((newNominee) => {
-    const { data, error } = supabase
-      .from('nominees')
-      .insert([newNominee])
-    if (error) throw new Error(error.message)
-    return data
-  })
-  */
   const addNominee = useMutation({
     mutationFn: async (newNominee) => {
       const { data, error } = await supabase
@@ -40,54 +32,87 @@ const Nominate = () => {
     }
   })
 
-  const handleTextChange = (e) => {
-    dispatch({
-      type: 'HANDLE_INPUT_TEXT',
-      field: e.target.name,
-      payload: e.target.value
-    })
-  }
+  // Handle file upload to Supabase storage
+  const uploadPhoto = async (file) => {
+    const filePath = `${formState.first_name}-${Date.now()}.${file.name.split('.').pop()}`;
+    const { data, error } = await supabase.storage
+      .from('nominee-photos')
+      .upload(filePath, file);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault()
-    if (
-      !listState.includes(formState) &&
-      formState.first_name &&
-      formState.last_name &&
-      formState.email &&
-      formState.nomination_reason
-    ) {
-      const payload = {
-        first_name: formState.first_name,
-        last_name: formState.last_name,
-        email: formState.email,
-        nomination_reason: formState.nomination_reason
-      }
+    if (error) throw new Error(error.message);
+    return data.path; // Return the file path to save in the database
+  };
 
-      await addNominee.mutate(payload, {
-        onSuccess: () => {
-          alert('Nominee added successfully!')
-          dispatchList({
-            type: 'HANDLE_ADD_TO_LIST',
-            payload: formState
-          })
-          dispatch({
-            type: 'HANDLE_RESET_TEXT',
-            payload: initialFormState
-          })
-        }
+  const handleChange = (e) => {
+    const { name, value, files } = e.target;
+
+    if (name === 'nominee_photo') {
+      dispatch({
+        type: 'HANDLE_INPUT_FILE',
+        field: name,
+        payload: files[0]
+      })
+      return
+    } else {
+      dispatch({
+        type: 'HANDLE_INPUT_TEXT',
+        field: name,
+        payload: value
       })
     }
   }
 
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+
+    try {
+      let photoPath = null;
+
+      if (formState.nominee_photo) {
+        photoPath = await uploadPhoto(formState.nominee_photo);
+      }
+
+      if (
+        !listState.includes(formState) &&
+        formState.first_name &&
+        formState.last_name &&
+        formState.email &&
+        formState.nomination_reason
+      ) {
+        const payload = {
+          first_name: formState.first_name,
+          last_name: formState.last_name,
+          email: formState.email,
+          nomination_reason: formState.nomination_reason,
+          nominee_photo: photoPath
+        }
+        await addNominee.mutate(payload, {
+          onSuccess: () => {
+            alert('Nominee added successfully!')
+            dispatchList({
+              type: 'HANDLE_ADD_TO_LIST',
+              payload: formState
+            })
+            dispatch({
+              type: 'HANDLE_RESET_TEXT',
+              payload: initialFormState
+            })
+          }
+        })
+      }
+    } catch (error) {
+      alert(`Photo upload error: ${error.message}`);
+    }
+
+  }
+
   return (
       <div className="flex flex-col items-center bg-white p-4">
-        <h1 className="text-2xl text-black font-bold mb-4">(Currently Under Construction...)</h1>
         <h2 className="text-xl text-black font-bold mb-4">Nominate</h2>
         <div>Nominate an Aggie to the Aggie Spotlight!</div>
         <NominateForm
           formState={formState}
-          handleTextChange={handleTextChange}
+          handleChange={handleChange}
           handleSubmit={handleSubmit}
         />
       </div>

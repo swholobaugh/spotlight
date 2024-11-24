@@ -3,7 +3,7 @@ import * as Form from '@radix-ui/react-form'
 
 const NominateForm = (props) => {
   const {
-    formState, handleTextChange, handleSubmit
+    formState, handleChange, handleSubmit
   } = props;
 
   return (
@@ -27,7 +27,7 @@ const NominateForm = (props) => {
             placeholder='First Name'
             className='w-full border border-[#E0E0E0] p-2 rounded focus:outline-none focus:ring-2 focus:ring-[#D4AF37]'
             value={formState.first_name}
-            onChange={(e) => handleTextChange(e)}
+            onChange={(e) => handleChange(e)}
           />
         </Form.Control>
       </Form.Field>
@@ -51,7 +51,7 @@ const NominateForm = (props) => {
             placeholder='Last Name'
             className='w-full border border-[#E0E0E0] p-2 rounded focus:outline-none focus:ring-2 focus:ring-[#D4AF37]'
             value={formState.last_name}
-            onChange={(e) => handleTextChange(e)}
+            onChange={(e) => handleChange(e)}
           />
         </Form.Control>
       </Form.Field>
@@ -81,7 +81,29 @@ const NominateForm = (props) => {
             placeholder='Email'
             className='w-full border border-[#E0E0E0] p-2 rounded focus:outline-none focus:ring-2 focus:ring-[#D4AF37]'
             value={formState.email}
-            onChange={(e) => handleTextChange(e)}
+            onChange={(e) => handleChange(e)}
+          />
+        </Form.Control>
+      </Form.Field>
+      {/* Nominee Photo Field */}
+      <Form.Field name='nominee_photo' className='w-full mb-4'>
+        <div className='flex items-baseline justify-between'>
+          <Form.Label className='text-[#500000] font-semibold'>Nominee Photo</Form.Label>
+          <Form.Message
+            className='text-[#B23A3A] text-sm'
+            match='valueMissing'
+          >
+            Please upload a photo of the nominee
+          </Form.Message>
+        </div>
+        <Form.Control asChild>
+          <input
+            id='nominee_photo'
+            name='nominee_photo'
+            type='file'
+            accept='image/*'
+            className='w-full border border-[#E0E0E0] p-2 rounded focus:outline-none focus:ring-2 focus:ring-[#D4AF37]'
+            onChange={(e) => handleChange(e)}
           />
         </Form.Control>
       </Form.Field>
@@ -104,7 +126,7 @@ const NominateForm = (props) => {
             placeholder='Reason for nomination'
             className='w-full border border-[#E0E0E0] p-2 rounded focus:outline-none focus:ring-2 focus:ring-[#D4AF37] resize-none'
             value={formState.nomination_reason}
-            onChange={(e) => handleTextChange(e)}
+            onChange={(e) => handleChange(e)}
             rows={4}
           />
         </Form.Control>
