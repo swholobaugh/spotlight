@@ -1,13 +1,16 @@
 import React from "react";
 import * as Separator from "@radix-ui/react-separator";
 import nomineeImage from "../../assets/headshot1.png";
+import Slider from 'react-slick'
+import { useQuery } from '@tanstack/react-query'
+import Nominee from '../../components/Nominee/Nominee'
 
-const initialFormState = {
-  firstName: "",
-  lastName: "",
-  phoneNumber: "",
-  isSelected: false
-};
+const fetchNominees = async () => {
+  const { data, error } = await supabase
+    .from('nominees')
+    .select('*');
+}
+
 
 const HallOfFame = () => {
 
