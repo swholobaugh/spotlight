@@ -7,8 +7,6 @@ import About from "./About/About.jsx"
 import HallOfFame from "./HallOfFame/HallOfFame.jsx"
 import Profile from "./Profile/Profile.jsx"
 import Vote from "./Vote/Vote.jsx"
-// import Login from "./Login/Login.jsx"
-// import ProtectedRoute from "../components/ProtectedRoute/ProtectedRoute.jsx"
 import { AuthProvider, useAuth } from '../providers/AuthProvider'
 import AuthPage from './AuthPage/AuthPage.jsx'
 

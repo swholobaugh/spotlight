@@ -3,7 +3,7 @@ import NominateForm from './NominateForm/NominateForm'
 import { NominateContext } from "../../Context.jsx";
 import nominateFormReducer from './NominateForm/nominateFormReducer'
 import {useMutation} from "@tanstack/react-query";
-import {supabase} from "../../auth/supbase.js";
+import {supabase} from "../../auth/supabase.js";
 
 const initialFormState = {
   first_name: '',

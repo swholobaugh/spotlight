@@ -1,15 +1,13 @@
 import React from 'react';
 import Slider from 'react-slick';
 import { useQuery } from '@tanstack/react-query';
-import { supabase } from '../../auth/supbase.js';
+import { supabase } from '../../auth/supabase.js';
 import Nominee from '../Nominee/Nominee.jsx';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {faChevronLeft, faChevronRight} from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 
 const fetchNominees = async () => {
-  const { data, error } = await supabase
-    .from('nominees')
-    .select('*');
+  const { data, error } = await supabase.from('nominees').select('*');
 
   if (error) throw new Error(error.message);
   return data;
@@ -53,7 +51,7 @@ const Spotlight = () => {
     dots: false,
     infinite: true,
     speed: 500,
-    slidesToShow: 2, // Display three slides at a time
+    slidesToShow: 2, // Display two slides at a time
     slidesToScroll: 1,
     prevArrow: <PrevArrow />,
     nextArrow: <NextArrow />,
@@ -80,24 +78,25 @@ const Spotlight = () => {
   if (!nominees.length) return <p>No nominees found.</p>;
 
   return (
-      <div className="w-full max-w-4xl px-4">
-        <Slider {...settings}>
-          {nominees.map((nominee) => (
-            <div key={nominee.id} className="px-4">
-              <Nominee
-                firstName={nominee.first_name}
-                lastName={nominee.last_name}
-                nomineePhoto={
-                  nominee.nominee_photo
-                    ? `${import.meta.env.VITE_SUPABASE_URL}/storage/v1/object/public/nominee-photos/${nominee.nominee_photo}`
-                    : 'https://via.placeholder.com/150' // Fallback photo
-                }
-                nominationReason={nominee.nomination_reason}
-              />
-            </div>
-          ))}
-        </Slider>
-      </div>
+    <div className="w-full max-w-4xl px-4">
+      <Slider {...settings}>
+        {nominees.map((nominee) => (
+          <div key={nominee.id} className="px-4">
+            <Nominee
+              id={nominee.id} // Pass nominee ID
+              firstName={nominee.first_name}
+              lastName={nominee.last_name}
+              nomineePhoto={
+                nominee.nominee_photo
+                  ? `${import.meta.env.VITE_SUPABASE_URL}/storage/v1/object/public/nominee-photos/${nominee.nominee_photo}`
+                  : 'https://via.placeholder.com/150' // Fallback photo
+              }
+              nominationReason={nominee.nomination_reason}
+            />
+          </div>
+        ))}
+      </Slider>
+    </div>
   );
 };
 
