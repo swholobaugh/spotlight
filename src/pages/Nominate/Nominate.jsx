@@ -47,10 +47,12 @@ const Nominate = () => {
     const { name, value, files } = e.target;
 
     if (name === 'nominee_photo') {
+      // handle file upload or removal
+      const file = files.length > 0 ? files[0] : null
       dispatch({
         type: 'HANDLE_INPUT_FILE',
         field: name,
-        payload: files[0]
+        payload: file
       })
       return
     } else {
