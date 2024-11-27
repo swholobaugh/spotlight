@@ -7,9 +7,24 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 
 const fetchNominees = async () => {
-  const { data, error } = await supabase.from('nominees').select('*');
+
+  const now = new Date()
+  // Start of the current month
+  const startOfMonth = new Date(now.getFullYear(), now.getMonth(), 1).toISOString();
+
+  // End of the current month
+  const endOfMonth = new Date(now.getFullYear(), now.getMonth() + 1, 0, 23, 59, 59).toISOString();
+
+
+  const { data, error } =
+    await supabase
+      .from('nominees')
+      .select('*')
+      .gte('date_nominated', startOfMonth)
+      .lte('date_nominated', endOfMonth);
 
   if (error) throw new Error(error.message);
+  console.log('data', data.length)
   return data;
 };
 

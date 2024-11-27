@@ -7,7 +7,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 
 const fetchNominees = async () => {
-  const { data, error } = await supabase.from('nominees').select('*');
+
+  const now = new Date()
+  const endOfMonth = new Date(now.getFullYear(), now.getMonth(), 0, 23, 59, 59).toISOString();
+  const { data, error } = await supabase
+    .from('nominees')
+    .select('*')
+    .lte('date_nominated', endOfMonth);
 
   if (error) throw new Error(error.message);
   return data;
@@ -89,6 +95,7 @@ const HallOfFame = () => {
               id={nominee.id}
               firstName={nominee.first_name}
               lastName={nominee.last_name}
+              dateNominated={nominee.date_nominated}
               nomineePhoto={
                 nominee.nominee_photo
                   ? `${import.meta.env.VITE_SUPABASE_URL}/storage/v1/object/public/nominee-photos/${nominee.nominee_photo}`

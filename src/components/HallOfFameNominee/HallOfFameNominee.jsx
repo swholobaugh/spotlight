@@ -8,13 +8,14 @@ import {useAuth} from '../../providers/AuthProvider.jsx';
 import {useQuery, useMutation, useQueryClient} from '@tanstack/react-query';
 
 const HallOfFameNominee = ({
-                   id,
-                   firstName,
-                   lastName,
-                   nomineePhoto,
-                   nominationReason,
-                   onViewDetails,
-                 }) => {
+                             id,
+                             firstName,
+                             lastName,
+                             dateNominated,
+                             nomineePhoto,
+                             nominationReason,
+                             onViewDetails,
+                           }) => {
   const {currentUser} = useAuth();
   const queryClient = useQueryClient();
 
@@ -26,7 +27,7 @@ const HallOfFameNominee = ({
       const {data, error} = await supabase
         .from('likes')
         .select('*')
-        .eq('nominee_id', id);
+        .eq('nominee_id', id)
 
       if (error) throw new Error(error.message);
       return data || [];
@@ -88,7 +89,9 @@ const HallOfFameNominee = ({
   return (
     <div
       className="flex flex-col items-center bg-white w-full h-[400px] border-2 border-[#500000] rounded-lg p-6 overflow-hidden">
-      <header className="text-lg font-bold text-[#500000] mb-4">Nominee</header>
+      <header className="text-lg font-bold text-[#500000] mb-4">
+        {new Date(dateNominated).toLocaleString('default', {month: 'long', year: 'numeric'})}
+      </header>
       <Separator.Root className="w-full h-[1px] bg-[#E0E0E0] mb-4"/>
       <div className="w-40 h-40 rounded-full overflow-hidden shadow-lg border-2 border-[#500000]">
         <img

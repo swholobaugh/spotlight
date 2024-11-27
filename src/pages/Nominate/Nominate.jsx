@@ -4,6 +4,7 @@ import { NominateContext } from "../../Context.jsx";
 import nominateFormReducer from './NominateForm/nominateFormReducer'
 import {useMutation} from "@tanstack/react-query";
 import {supabase} from "../../auth/supabase.js";
+import { format } from 'date-fns';
 
 const initialFormState = {
   first_name: '',
@@ -86,7 +87,8 @@ const Nominate = () => {
           last_name: formState.last_name,
           email: formState.email,
           nomination_reason: formState.nomination_reason,
-          nominee_photo: photoPath
+          nominee_photo: photoPath,
+          date_nominated: format(new Date(), 'yyyy-MM-dd')
         }
         await addNominee.mutate(payload, {
           onSuccess: () => {
