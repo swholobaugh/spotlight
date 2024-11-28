@@ -41,10 +41,10 @@ const Home = () => {
                 <div className='mt-4 text-xl font-bold text-[#500000]'>Michal Davis</div>
                 <div className='mt-8 text-lg font-bold text-[#500000]'>Biography</div>
                 <p className='mt-4 w-3/4 indent-4 text-[#2C2C2C]'>
-                  Michael Davis is a dedicated community leader and volunteer who has spent the last decade making a meaningful impact in his hometown. At 30 years old, Michael is well-known for his tireless efforts to improve the lives of both people and animals in the community. When he’s not working as a project coordinator for a local nonprofit, Michael can be found volunteering at the Sunnyside Animal Shelter, where he helps care for abandoned pets and organizes adoption events. His love for animals and commitment to their well-being has inspired many in the community to step up and support the shelter's mission.
+                  Michael Davis, 30, is a passionate community volunteer known for his dedication to helping others. He spends much of his time at the Sunnyside Animal Shelter, where he cares for animals and organizes adoption events, inspiring others to support the cause.
                 </p>
                 <p className='mt-2 w-3/4 indent-4 text-[#2C2C2C]'>
-                  Beyond his work with animals, Michael is also a mentor to local high school students, guiding them through community service projects that teach the importance of giving back. Whether it’s hosting neighborhood clean-ups, running charity drives, or simply lending a listening ear to someone in need, Michael’s selfless spirit and boundless energy make him a true role model. Friends and neighbors describe him as warm, approachable, and deeply passionate about creating a better world for everyone.
+                  Beyond his work at the shelter, Michael mentors local high school students and leads community service projects, from neighborhood clean-ups to charity drives. His kindness, energy, and commitment to making a difference have earned him the admiration of neighbors and friends alike.
                 </p>
               </div>
             </div>
