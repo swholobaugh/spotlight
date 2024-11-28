@@ -48,7 +48,7 @@ const HallOfFame = () => {
     isError,
     error,
   } = useQuery({
-    queryKey: ['nominees'],
+    queryKey: ['nominees', 'hof'],
     queryFn: fetchNominees,
     staleTime: 5 * 60 * 1000,
     refetchOnWindowFocus: false,
