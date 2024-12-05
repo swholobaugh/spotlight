@@ -12,8 +12,9 @@ const Home = () => {
         <div className='text-2xl font-bold text-[#500000]'>
           Welcome to the Aggie Spotlight!
         </div>
-        <div className='mt-2 text-[#2C2C2C]'>
-          This is a platform where Aggies can be nominated for their outstanding demonstration of the Aggie Core values of Excellence and Integrity.
+        <div className='mt-2 text-[#2C2C2C] max-w-[1000px]'>
+          This is a platform where Aggies can be nominated for their outstanding demonstration of the Aggie Core values of Excellence and Integrity. You
+          are able to nominate an Aggie, vote for your favorite nominee, and view past winners in the Hall of Fame.
         </div>
         <div
           className='text-[#D4AF37] cursor-pointer hover:underline'
@@ -25,7 +26,7 @@ const Home = () => {
       <section className='border-2 border-[#500000] rounded-lg w-2/3 mt-4 p-6'>
         <div className='flex flex-col justify-center items-center'>
           <header className='text-lg font-bold text-[#500000] mb-4'>
-            Current Nominee
+            Current Spotlight
           </header>
           <Separator.Root className='w-full h-[1px] bg-[#E0E0E0] mb-4' />
           <div className='flex flex-col items-center'>
