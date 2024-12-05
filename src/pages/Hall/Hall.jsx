@@ -6,7 +6,7 @@ import HallOfFame from '../../components/HallOfFame/HallOfFame.jsx'
 const Hall = () => {
 
   return (
-    <div className='flex flex-col justify-center items-center'>
+    <div className='flex flex-col justify-center items-center p-4'>
       <h1 className='text-3xl text-app-accent font-bold mb-2'>Hall of Fame</h1>
       <section className='w-2/3 p-6'>
         <div className='flex flex-col justify-center text-center items-center'>

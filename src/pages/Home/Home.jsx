@@ -9,7 +9,7 @@ const Home = () => {
   return (
     <div className='flex flex-col items-center bg-white w-full'>
       <div className='flex flex-col justify-center items-center text-center'>
-        <div className='text-2xl font-bold text-[#500000]'>
+        <div className='text-3xl font-bold text-[#500000]'>
           Welcome to the Aggie Spotlight!
         </div>
         <div className='mt-2 text-[#2C2C2C] max-w-[1000px]'>
