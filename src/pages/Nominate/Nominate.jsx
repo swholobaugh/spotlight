@@ -122,7 +122,7 @@ const Nominate = () => {
       <div className="flex flex-col items-center bg-white p-4">
         <h2 className="text-3xl text-[#500000] font-bold mb-4">Nominate</h2>
         <div className='text-lg'>
-          Nominate an Aggie to the Aggie Spotlight! Please fill in all of the fields below.</div>
+          Nominate an Aggie to the Aggie Spotlight! Each nomination is active for the current month. Please fill in all of the fields below.</div>
         <NominateForm
           formState={formState}
           handleChange={handleChange}
