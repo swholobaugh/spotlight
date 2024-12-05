@@ -119,7 +119,7 @@ const HallOfFame = () => {
             onClick={(e) => e.stopPropagation()}
           >
             <button
-              className="absolute top-3 right-3 text-[#500000] font-bold text-lg"
+              className="absolute top-3 right-3 text-[#500000] font-bold text-3xl"
               onClick={handleCloseModal}
             >
               &times;
