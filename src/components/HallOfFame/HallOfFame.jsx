@@ -115,66 +115,64 @@ const HallOfFame = () => {
           onClick={handleCloseModal}
         >
           <div
-            className="bg-white rounded-lg p-6 w-11/12 max-w-xl relative"
+            className="bg-white rounded-lg shadow-2xl p-6 w-11/12 max-w-3xl relative"
             onClick={(e) => e.stopPropagation()}
           >
             <button
-              className="absolute top-3 right-3 text-[#500000] font-bold text-3xl"
+              className="absolute top-3 right-3 text-gray-500 hover:text-[#500000] text-3xl font-bold transition-colors"
               onClick={handleCloseModal}
+              aria-label="Close"
             >
               &times;
             </button>
             <header className="text-center border-b pb-4">
-              <h2 className="text-2xl font-bold text-[#500000]">
+              <h2 className="text-3xl font-bold text-[#500000]">
                 {activeNominee.first_name} {activeNominee.last_name}
               </h2>
+              <p className="text-sm text-gray-500 mt-1">Date Nominated: {activeNominee.date_nominated}</p>
             </header>
-            <div className="mt-4 flex flex-col items-center">
-              <div className="w-40 h-40 rounded-full overflow-hidden shadow-lg border-2 border-[#500000]">
+            <div className="mt-6 flex flex-col md:flex-row items-center md:items-start md:space-x-6">
+              <div className="w-40 h-40 rounded-full overflow-hidden shadow-md border-4 border-[#500000]">
                 <img
                   className="w-full h-full object-cover"
-                  src={activeNominee.nominee_photo
-                    ? `${import.meta.env.VITE_SUPABASE_URL}/storage/v1/object/public/nominee-photos/${activeNominee.nominee_photo}`
-                    : 'https://via.placeholder.com/150'
+                  src={
+                    activeNominee.nominee_photo
+                      ? `${import.meta.env.VITE_SUPABASE_URL}/storage/v1/object/public/nominee-photos/${activeNominee.nominee_photo}`
+                      : "https://via.placeholder.com/150"
                   }
                   alt={`${activeNominee.first_name} ${activeNominee.last_name}`}
                 />
               </div>
-              <div className="mt-4 text-lg font-bold text-[#500000]">
-                Nomination Reason
-              </div>
-              <p className="mt-4 text-center text-[#2C2C2C]">
-                {activeNominee.nomination_reason}
-              </p>
-              {/* Additional Fields */}
-              <div className="mt-4">
-                <div className="text-sm text-[#500000] font-bold">Hometown</div>
-                <p className="text-center text-[#2C2C2C]">
-                  {activeNominee.hometown || 'Not provided'}
-                </p>
-              </div>
-              <div className="mt-4">
-                <div className="text-sm text-[#500000] font-bold">Class Year</div>
-                <p className="text-center text-[#2C2C2C]">
-                  {activeNominee.class_year || 'Not provided'}
-                </p>
-              </div>
-              <div className="mt-4">
-                <div className="text-sm text-[#500000] font-bold">LinkedIn</div>
-                <a
-                  href={activeNominee.linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-center text-[#2C2C2C] underline"
-                >
-                  {activeNominee.linkedin || 'Not provided'}
-                </a>
-              </div>
-              <div className="mt-4">
-                <div className="text-sm text-[#500000] font-bold">Biography</div>
-                <p className="text-center text-[#2C2C2C]">
-                  {activeNominee.biography || 'Not provided'}
-                </p>
+              <div className="mt-4 md:mt-0 flex-1">
+                {/* Nomination Reason */}
+                <div className="mb-6">
+                  <h3 className="text-lg font-semibold text-[#500000]">Nomination Reason</h3>
+                  <p className="mt-2 text-gray-700">{activeNominee.nomination_reason}</p>
+                </div>
+                {/* Additional Fields */}
+                <div className="mb-4">
+                  <h3 className="text-sm font-semibold text-[#500000]">Hometown</h3>
+                  <p className="mt-1 text-gray-700">{activeNominee.hometown || "Not provided"}</p>
+                </div>
+                <div className="mb-4">
+                  <h3 className="text-sm font-semibold text-[#500000]">Class Year</h3>
+                  <p className="mt-1 text-gray-700">{activeNominee.class_year || "Not provided"}</p>
+                </div>
+                <div className="mb-4">
+                  <h3 className="text-sm font-semibold text-[#500000]">LinkedIn</h3>
+                  <a
+                    href={activeNominee.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-1 text-blue-600 hover:underline"
+                  >
+                    {activeNominee.linkedin || "Not provided"}
+                  </a>
+                </div>
+                <div className="mb-4">
+                  <h3 className="text-sm font-semibold text-[#500000]">Biography</h3>
+                  <p className="mt-1 text-gray-700">{activeNominee.biography || "Not provided"}</p>
+                </div>
               </div>
             </div>
           </div>
