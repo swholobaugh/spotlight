@@ -5,7 +5,7 @@ const NominateForm = (props) => {
   const { formState, handleChange, handleSubmit } = props;
 
   return (
-    <Form.Root className="flex flex-col items-center bg-white p-6 rounded-lg shadow-md max-w-lg min-w-[350px] w-full">
+    <Form.Root className="flex flex-col items-center bg-white p-6 rounded-lg shadow-md max-w-lg min-w-[400px] w-full">
       {/* First Name Field */}
       <Form.Field name="first_name" className="w-full mb-4">
         <div className="flex items-baseline justify-between">
@@ -72,6 +72,69 @@ const NominateForm = (props) => {
         </Form.Control>
       </Form.Field>
 
+      {/* Hometown field */}
+      <Form.Field name="hometown" className="w-full mb-4">
+        <div className="flex items-baseline justify-between">
+          <Form.Label className="text-[#500000] font-semibold">Hometown</Form.Label>
+          <Form.Message className="text-[#B23A3A] text-sm" match="valueMissing">
+            Please enter your hometown
+          </Form.Message>
+        </div>
+        <Form.Control asChild>
+          <input
+            id="hometown"
+            name="hometown"
+            type="text"
+            placeholder="Hometown"
+            className="w-full border border-[#E0E0E0] p-2 rounded focus:outline-none focus:ring-2 focus:ring-[#D4AF37]"
+            value={formState.hometown}
+            onChange={handleChange}
+          />
+        </Form.Control>
+      </Form.Field>
+
+      {/* Class Year Field */}
+      <Form.Field name="class_year" className="w-full mb-4">
+        <div className="flex items-baseline justify-between">
+          <Form.Label className="text-[#500000] font-semibold">Class Year</Form.Label>
+          <Form.Message className="text-[#B23A3A] text-sm" match="valueMissing">
+            Please enter your class year
+          </Form.Message>
+        </div>
+        <Form.Control asChild>
+          <input
+            id="class_year"
+            name="class_year"
+            type="number"
+            placeholder="Class Year"
+            className="w-full border border-[#E0E0E0] p-2 rounded focus:outline-none focus:ring-2 focus:ring-[#D4AF37]"
+            value={formState.class_year}
+            onChange={handleChange}
+          />
+        </Form.Control>
+      </Form.Field>
+
+      {/* LinkedIn Field */}
+      <Form.Field name="linked_in" className="w-full mb-4">
+        <div className="flex items-baseline justify-between">
+          <Form.Label className="text-[#500000] font-semibold">LinkedIn</Form.Label>
+          <Form.Message className="text-[#B23A3A] text-sm" match="typeMismatch">
+            Please enter a valid LinkedIn URL
+          </Form.Message>
+        </div>
+        <Form.Control asChild>
+          <input
+            id="linked_in"
+            name="linked_in"
+            type="url"
+            placeholder="LinkedIn"
+            className="w-full border border-[#E0E0E0] p-2 rounded focus:outline-none focus:ring-2 focus:ring-[#D4AF37]"
+            value={formState.linked_in}
+            onChange={handleChange}
+          />
+        </Form.Control>
+      </Form.Field>
+
       {/* Nominee Photo Field */}
       <Form.Field name="nominee_photo" className="w-full mb-4">
         <div className="flex items-baseline justify-between">
@@ -109,6 +172,27 @@ const NominateForm = (props) => {
             </Form.Control>
           )}
         </div>
+      </Form.Field>
+
+      {/* Biography */}
+      <Form.Field name="biography" className="w-full mb-4">
+        <div className="flex items-baseline justify-between">
+          <Form.Label className="text-[#500000] font-semibold">Biography</Form.Label>
+          <Form.Message className="text-[#B23A3A] text-sm" match="valueMissing">
+            Please provide a biography for the nominee
+          </Form.Message>
+        </div>
+        <Form.Control asChild>
+          <textarea
+            id="biography"
+            name="biography"
+            placeholder="Biography"
+            className="w-full border border-[#E0E0E0] p-2 rounded focus:outline-none focus:ring-2 focus:ring-[#D4AF37] resize-none"
+            value={formState.biography}
+            onChange={handleChange}
+            rows={4}
+          />
+        </Form.Control>
       </Form.Field>
 
       {/* Nomination Reason Field */}

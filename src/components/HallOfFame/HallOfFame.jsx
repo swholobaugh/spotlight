@@ -146,6 +146,36 @@ const HallOfFame = () => {
               <p className="mt-4 text-center text-[#2C2C2C]">
                 {activeNominee.nomination_reason}
               </p>
+              {/* Additional Fields */}
+              <div className="mt-4">
+                <div className="text-sm text-[#500000] font-bold">Hometown</div>
+                <p className="text-center text-[#2C2C2C]">
+                  {activeNominee.hometown || 'Not provided'}
+                </p>
+              </div>
+              <div className="mt-4">
+                <div className="text-sm text-[#500000] font-bold">Class Year</div>
+                <p className="text-center text-[#2C2C2C]">
+                  {activeNominee.class_year || 'Not provided'}
+                </p>
+              </div>
+              <div className="mt-4">
+                <div className="text-sm text-[#500000] font-bold">LinkedIn</div>
+                <a
+                  href={activeNominee.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-center text-[#2C2C2C] underline"
+                >
+                  {activeNominee.linkedin || 'Not provided'}
+                </a>
+              </div>
+              <div className="mt-4">
+                <div className="text-sm text-[#500000] font-bold">Biography</div>
+                <p className="text-center text-[#2C2C2C]">
+                  {activeNominee.biography || 'Not provided'}
+                </p>
+              </div>
             </div>
           </div>
         </div>

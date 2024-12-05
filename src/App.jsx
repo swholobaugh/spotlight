@@ -24,7 +24,7 @@ export default function App() {
   );
 
   return (
-      <div className="App h-screen bg-app-background items-center">
+      <div className="App bg-app-background items-center">
         <QueryClientProvider client={queryClient}>
         <NominateContext.Provider value={[listState, dispatchList]}>
           <Pages />

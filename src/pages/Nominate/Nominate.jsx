@@ -12,6 +12,10 @@ const initialFormState = {
   email: '',
   nomination_reason: '',
   nominee_photo: null,
+  linked_in: '',
+  biography: '',
+  hometown: '',
+  class_year: '',
   isSelected: false
 }
 
@@ -88,6 +92,10 @@ const Nominate = () => {
           email: formState.email,
           nomination_reason: formState.nomination_reason,
           nominee_photo: photoPath,
+          biography: formState.biography,
+          linked_in: formState.linked_in,
+          hometown: formState.hometown,
+          class_year: formState.class_year,
           date_nominated: format(new Date(), 'yyyy-MM-dd')
         }
         await addNominee.mutate(payload, {

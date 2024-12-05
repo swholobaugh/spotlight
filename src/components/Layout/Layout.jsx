@@ -5,8 +5,8 @@ import {AuthProvider} from '../../providers/AuthProvider'
 
 const Layout = ({children}) => {
   return (
-      <div>
-        <Navbar/>
+      <div className='max-h-screen'>
+        <Navbar />
         <main className="flex justify-center">
           <Card>
             {children}
