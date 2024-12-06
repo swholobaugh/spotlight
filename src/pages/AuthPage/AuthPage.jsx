@@ -28,7 +28,7 @@ const AuthPage = () => {
 
   return (
     <div className="flex flex-col items-center justify-center bg-white p-6 rounded-lg shadow-md w-full max-w-md mx-auto mt-12">
-      <h2 className="text-2xl font-bold text-[#500000] mb-4">{isSignup ? 'Sign Up' : 'Log In'}</h2>
+      <h2 className="text-2xl font-bold text-[#500000] mb-4">{isSignup ? 'Create Account' : 'Log In'}</h2>
 
       {/* Display error message if there is an error */}
       {error && (
@@ -74,7 +74,7 @@ const AuthPage = () => {
           }}
           className="ml-2 text-[#D4AF37] underline cursor-pointer hover:text-[#B23A3A] transition-colors"
         >
-          {isSignup ? 'Log In' : 'Sign Up'}
+          {isSignup ? 'Log In' : 'Create Account'}
         </button>
       </p>
     </div>
