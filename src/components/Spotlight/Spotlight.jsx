@@ -24,7 +24,6 @@ const fetchNominees = async () => {
       .lte('date_nominated', endOfMonth);
 
   if (error) throw new Error(error.message);
-  console.log('data', data.length)
   return data;
 };
 
