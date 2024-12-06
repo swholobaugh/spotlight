@@ -1,4 +1,5 @@
-import React, {useState, useEffect} from "react";
+
+import React, { useState, useEffect } from "react";
 import * as Form from "@radix-ui/react-form";
 
 const NominateForm = (props) => {
@@ -7,7 +8,6 @@ const NominateForm = (props) => {
   const [isFormValid, setIsFormValid] = useState(false);
 
   useEffect(() => {
-    // Check if all required fields have been filled out
     const requiredFields = [
       "first_name",
       "last_name",
@@ -15,19 +15,20 @@ const NominateForm = (props) => {
       "hometown",
       "class_year",
       "linked_in",
-      "nominee_photo",
       "biography",
       "nomination_reason",
     ];
-    const allFieldsFilled = requiredFields.every((field) =>
-      formState[field] && (field !== "nominee_photo" ? formState[field].trim() : true)
+    const allFieldsFilled = requiredFields.every(
+      (field) => formState[field] && formState[field].trim()
     );
-
     setIsFormValid(allFieldsFilled);
   }, [formState]);
 
   return (
-    <Form.Root className="bg-white p-6 rounded-lg shadow-md max-w-3xl w-full">
+    <Form.Root
+      className="bg-white p-6 rounded-lg shadow-md max-w-3xl w-full"
+      onSubmit={handleSubmit}
+    >
       <div className="grid grid-cols-2 gap-4">
         {/* First Name */}
         <Form.Field name="first_name">
@@ -43,8 +44,15 @@ const NominateForm = (props) => {
               className="w-full border border-[#E0E0E0] p-2 rounded focus:outline-none focus:ring-2 focus:ring-[#D4AF37]"
               value={formState.first_name}
               onChange={handleChange}
+              required
             />
           </Form.Control>
+          <Form.Message
+            match="valueMissing"
+            className="text-red-500 text-sm mt-1"
+          >
+            First Name is required.
+          </Form.Message>
         </Form.Field>
 
         {/* Last Name */}
@@ -61,8 +69,15 @@ const NominateForm = (props) => {
               className="w-full border border-[#E0E0E0] p-2 rounded focus:outline-none focus:ring-2 focus:ring-[#D4AF37]"
               value={formState.last_name}
               onChange={handleChange}
+              required
             />
           </Form.Control>
+          <Form.Message
+            match="valueMissing"
+            className="text-red-500 text-sm mt-1"
+          >
+            Last Name is required.
+          </Form.Message>
         </Form.Field>
 
         {/* Email */}
@@ -79,8 +94,21 @@ const NominateForm = (props) => {
               className="w-full border border-[#E0E0E0] p-2 rounded focus:outline-none focus:ring-2 focus:ring-[#D4AF37]"
               value={formState.email}
               onChange={handleChange}
+              required
             />
           </Form.Control>
+          <Form.Message
+            match="valueMissing"
+            className="text-red-500 text-sm mt-1"
+          >
+            Email is required.
+          </Form.Message>
+          <Form.Message
+            match="typeMismatch"
+            className="text-red-500 text-sm mt-1"
+          >
+            Enter a valid email address.
+          </Form.Message>
         </Form.Field>
 
         {/* Hometown */}
@@ -97,8 +125,15 @@ const NominateForm = (props) => {
               className="w-full border border-[#E0E0E0] p-2 rounded focus:outline-none focus:ring-2 focus:ring-[#D4AF37]"
               value={formState.hometown}
               onChange={handleChange}
+              required
             />
           </Form.Control>
+          <Form.Message
+            match="valueMissing"
+            className="text-red-500 text-sm mt-1"
+          >
+            Hometown is required.
+          </Form.Message>
         </Form.Field>
 
         {/* Class Year */}
@@ -110,13 +145,20 @@ const NominateForm = (props) => {
             <input
               id="class_year"
               name="class_year"
-              type="number"
+              type="text"
               placeholder="Class Year"
               className="w-full border border-[#E0E0E0] p-2 rounded focus:outline-none focus:ring-2 focus:ring-[#D4AF37]"
               value={formState.class_year}
               onChange={handleChange}
+              required
             />
           </Form.Control>
+          <Form.Message
+            match="valueMissing"
+            className="text-red-500 text-sm mt-1"
+          >
+            Class Year is required.
+          </Form.Message>
         </Form.Field>
 
         {/* LinkedIn */}
@@ -133,8 +175,15 @@ const NominateForm = (props) => {
               className="w-full border border-[#E0E0E0] p-2 rounded focus:outline-none focus:ring-2 focus:ring-[#D4AF37]"
               value={formState.linked_in}
               onChange={handleChange}
+              required
             />
           </Form.Control>
+          <Form.Message
+            match="valueMissing"
+            className="text-red-500 text-sm mt-1"
+          >
+            LinkedIn URL is required.
+          </Form.Message>
         </Form.Field>
       </div>
 
@@ -145,16 +194,23 @@ const NominateForm = (props) => {
             Biography
           </Form.Label>
           <Form.Control asChild>
-        <textarea
-          id="biography"
-          name="biography"
-          placeholder="Biography"
-          className="w-full border border-[#E0E0E0] p-2 rounded focus:outline-none focus:ring-2 focus:ring-[#D4AF37] resize-none"
-          value={formState.biography}
-          onChange={handleChange}
-          rows={4}
-        />
+            <textarea
+              id="biography"
+              name="biography"
+              placeholder="Biography"
+              className="w-full border border-[#E0E0E0] p-2 rounded focus:outline-none focus:ring-2 focus:ring-[#D4AF37] resize-none"
+              value={formState.biography}
+              onChange={handleChange}
+              rows={4}
+              required
+            />
           </Form.Control>
+          <Form.Message
+            match="valueMissing"
+            className="text-red-500 text-sm mt-1"
+          >
+            Biography is required.
+          </Form.Message>
         </Form.Field>
 
         {/* Nomination Reason */}
@@ -163,16 +219,23 @@ const NominateForm = (props) => {
             Nomination Reason
           </Form.Label>
           <Form.Control asChild>
-        <textarea
-          id="nomination_reason"
-          name="nomination_reason"
-          placeholder="Reason for nomination"
-          className="w-full border border-[#E0E0E0] p-2 rounded focus:outline-none focus:ring-2 focus:ring-[#D4AF37] resize-none"
-          value={formState.nomination_reason}
-          onChange={handleChange}
-          rows={4}
-        />
+            <textarea
+              id="nomination_reason"
+              name="nomination_reason"
+              placeholder="Reason for nomination"
+              className="w-full border border-[#E0E0E0] p-2 rounded focus:outline-none focus:ring-2 focus:ring-[#D4AF37] resize-none"
+              value={formState.nomination_reason}
+              onChange={handleChange}
+              rows={4}
+              required
+            />
           </Form.Control>
+          <Form.Message
+            match="valueMissing"
+            className="text-red-500 text-sm mt-1"
+          >
+            Nomination reason is required.
+          </Form.Message>
         </Form.Field>
       </div>
 
@@ -180,8 +243,12 @@ const NominateForm = (props) => {
         <Form.Submit asChild>
           <button
             type="submit"
-            className="w-full max-w-xs p-2 bg-[#500000] text-white font-semibold rounded hover:bg-[#7A2323] transition-colors"
-            onClick={handleSubmit}
+            className={`w-full max-w-xs p-2 font-semibold rounded transition-colors ${
+              isFormValid
+                ? "bg-[#500000] text-white hover:bg-[#7A2323]"
+                : "bg-gray-300 text-gray-500 cursor-not-allowed"
+            }`}
+            disabled={!isFormValid}
           >
             Submit Nomination
           </button>
