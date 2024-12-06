@@ -67,7 +67,7 @@ const Home = () => {
             <div className="flex flex-col items-center">
               <div className="flex justify-center items-center">
                 <img
-                  className="w-64 h-64 rounded-full shadow-lg border-2 border-[#500000] object-cover"
+                  className="w-48 h-48 rounded-full shadow-lg border-2 border-[#500000] object-cover"
                   src={
                     nominee.nominee_photo
                       ? `${import.meta.env.VITE_SUPABASE_URL}/storage/v1/object/public/nominee-photos/${nominee.nominee_photo}`
