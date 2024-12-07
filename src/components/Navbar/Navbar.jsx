@@ -85,7 +85,7 @@ const Navbar = () => {
               className="px-4 py-2 bg-[#500000] text-white font-semibold rounded hover:bg-[#7A2323] transition-colors"
               onClick={() => handleClick('/auth')}
             >
-              Login
+              Login/SignUp
             </button>
           )}
         </div>
