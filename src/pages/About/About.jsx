@@ -12,7 +12,7 @@ const About = () => {
       <section className='w-3/4 mb-8'>
         <h1 className='text-xl text-[#500000] font-bold mb-4'>Mission Statement</h1>
         <p className='text-[#2C2C2C] leading-relaxed'>
-          Our mission is to lead with excellence and demonstrate integrity in our project based on the Aggie Core Values. We believe that aligning with these core values will help us achieve success not only in this project but throughout all our lives. We aim to help others achieve this same alignment in order for our communities to achieve their greatest possible levels of success.
+          Our mission is to lead with excellence and demonstrate integrity through the Aggie Core Values by inspiring others to uphold these principles. We aim to help others achieve this success by highlighting individuals who embody these values.
         </p>
       </section>
       <section className='w-3/4 mb-8'>
